@@ -1,27 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hQ-hQ-X2Y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
+        <scene sceneID="utK-Lz-vkc">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="2hQ-hQ-X2Y" customClass="LoginViewController" customModule="proximity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ily-0N-wut">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYg-pF-mEY" customClass="LoginV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radar" translatesAutoresizingMaskIntoConstraints="NO" id="vQc-EQ-rqg">
+                                        <rect key="frame" x="67" y="69" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="8um-Vz-U0c"/>
+                                            <constraint firstAttribute="width" constant="240" id="RbN-C4-zj7"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWr-Q3-NmP">
+                                        <rect key="frame" x="117" y="325" width="141" height="30"/>
+                                        <state key="normal" title="Login with Facebook"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="2hQ-hQ-X2Y" eventType="touchUpInside" id="faW-hp-tY6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.92549019610000005" blue="0.72720013784999993" alpha="0.33764982876712329" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vQc-EQ-rqg" firstAttribute="top" secondItem="ZYg-pF-mEY" secondAttribute="top" constant="69" id="UOF-01-5iU"/>
+                                    <constraint firstItem="eWr-Q3-NmP" firstAttribute="top" secondItem="vQc-EQ-rqg" secondAttribute="bottom" constant="16" id="UdK-pS-uy0"/>
+                                    <constraint firstItem="eWr-Q3-NmP" firstAttribute="centerX" secondItem="ZYg-pF-mEY" secondAttribute="centerX" id="bXt-gp-pkA"/>
+                                    <constraint firstItem="vQc-EQ-rqg" firstAttribute="centerX" secondItem="ZYg-pF-mEY" secondAttribute="centerX" id="mfS-rD-hpQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3rc-4y-xeO" firstAttribute="bottom" secondItem="ZYg-pF-mEY" secondAttribute="bottom" id="SoD-uh-phe"/>
+                            <constraint firstAttribute="trailing" secondItem="ZYg-pF-mEY" secondAttribute="trailing" id="U2G-Ov-Pr6"/>
+                            <constraint firstItem="ZYg-pF-mEY" firstAttribute="top" secondItem="3rc-4y-xeO" secondAttribute="top" id="c3g-p7-k7S"/>
+                            <constraint firstItem="ZYg-pF-mEY" firstAttribute="leading" secondItem="3rc-4y-xeO" secondAttribute="leading" id="yHT-gQ-hAF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3rc-4y-xeO"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="eWr-Q3-NmP" id="L3U-Bl-mzC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="34G-i9-lLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-738.39999999999998" y="87.706146926536732"/>
+        </scene>
+        <!--Finder View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController storyboardIdentifier="FinderViewController" id="BV1-FR-VrT" customClass="FinderViewController" customModule="proximity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JhA-Op-6oI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YV3-jS-mAV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1t-qq-xln">
+                                <rect key="frame" x="16" y="629" width="74" height="30"/>
+                                <state key="normal" title="Find friend"/>
+                                <connections>
+                                    <segue destination="rLO-wH-9vs" kind="show" id="Bla-Wz-g4u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="878-Bf-t38" firstAttribute="bottom" secondItem="YV3-jS-mAV" secondAttribute="bottom" id="79S-XX-ayC"/>
+                            <constraint firstItem="YV3-jS-mAV" firstAttribute="top" secondItem="878-Bf-t38" secondAttribute="top" id="G8c-ih-Ghx"/>
+                            <constraint firstItem="J1t-qq-xln" firstAttribute="leading" secondItem="878-Bf-t38" secondAttribute="leading" constant="16" id="Hah-m8-awC"/>
+                            <constraint firstItem="878-Bf-t38" firstAttribute="bottom" secondItem="J1t-qq-xln" secondAttribute="bottom" constant="8" id="a6r-QB-xdj"/>
+                            <constraint firstItem="878-Bf-t38" firstAttribute="trailing" secondItem="YV3-jS-mAV" secondAttribute="trailing" id="dje-ib-eXY"/>
+                            <constraint firstItem="YV3-jS-mAV" firstAttribute="leading" secondItem="878-Bf-t38" secondAttribute="leading" id="fLg-Eb-PWY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="878-Bf-t38"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="sceneView" destination="YV3-jS-mAV" id="8qj-lu-k30"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135" y="88"/>
+        </scene>
+        <!--Friend List View Controller-->
+        <scene sceneID="BLz-uG-Rn8">
+            <objects>
+                <tableViewController id="rLO-wH-9vs" customClass="FriendListViewController" customModule="proximity" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="X65-0m-bPy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ogj-qG-b7Y">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ogj-qG-b7Y" id="rqA-tV-3Za">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rLO-wH-9vs" id="PDK-AO-2jJ"/>
+                            <outlet property="delegate" destination="rLO-wH-9vs" id="dx2-eY-Zpa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2OO-O4-0KP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1026" y="88"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="radar" width="240" height="236"/>
+    </resources>
 </document>
