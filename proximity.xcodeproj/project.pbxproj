@@ -20,6 +20,8 @@
 		989C59B71F90AA7700492039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989C59B51F90AA7700492039 /* LaunchScreen.storyboard */; };
 		989C59C21F90AA7700492039 /* proximityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C59C11F90AA7700492039 /* proximityTests.swift */; };
 		989C59CD1F90AABC00492039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 989C59CC1F90AAB900492039 /* GoogleService-Info.plist */; };
+		98EADCD31F90E220009BE033 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EADCD21F90E220009BE033 /* Friend.swift */; };
+		98EADCD61F90E390009BE033 /* FriendMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EADCD51F90E390009BE033 /* FriendMapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		989C59C11F90AA7700492039 /* proximityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proximityTests.swift; sourceTree = "<group>"; };
 		989C59C31F90AA7700492039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		989C59CC1F90AAB900492039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		98EADCD21F90E220009BE033 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		98EADCD51F90E390009BE033 /* FriendMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMapping.swift; sourceTree = "<group>"; };
 		A14C837EE66839B3432BA06D /* Pods_proximityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proximityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CEF7AAE18BEE18DEA91983 /* Pods-proximity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proximity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proximity/Pods-proximity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +114,8 @@
 		989C59A91F90AA7700492039 /* proximity */ = {
 			isa = PBXGroup;
 			children = (
+				98EADCD41F90E386009BE033 /* Mapping */,
+				98EADCD11F90E212009BE033 /* Models */,
 				989C59CC1F90AAB900492039 /* GoogleService-Info.plist */,
 				989C59AA1F90AA7700492039 /* AppDelegate.swift */,
 				989C59AC1F90AA7700492039 /* art.scnassets */,
@@ -132,6 +138,22 @@
 				989C59C31F90AA7700492039 /* Info.plist */,
 			);
 			path = proximityTests;
+			sourceTree = "<group>";
+		};
+		98EADCD11F90E212009BE033 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				98EADCD21F90E220009BE033 /* Friend.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		98EADCD41F90E386009BE033 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				98EADCD51F90E390009BE033 /* FriendMapping.swift */,
+			);
+			path = Mapping;
 			sourceTree = "<group>";
 		};
 		D876808795733818D6542B5D /* Frameworks */ = {
@@ -349,7 +371,9 @@
 			files = (
 				9863F9141F90D1AC0057C244 /* FacebookUtils.swift in Sources */,
 				9891A1441F90B9BA006AF845 /* LoginViewController.swift in Sources */,
+				98EADCD61F90E390009BE033 /* FriendMapping.swift in Sources */,
 				989C59AF1F90AA7700492039 /* FinderViewController.swift in Sources */,
+				98EADCD31F90E220009BE033 /* Friend.swift in Sources */,
 				989C59AB1F90AA7700492039 /* AppDelegate.swift in Sources */,
 				9891A1421F90B369006AF845 /* FriendListViewController.swift in Sources */,
 			);

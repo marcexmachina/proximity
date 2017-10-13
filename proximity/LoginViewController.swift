@@ -47,10 +47,10 @@ class LoginViewController: UIViewController {
   // MARK: - Private methods
 
   private func presentFriendFinderViewController() {
-    guard let finderViewController = storyboard?.instantiateViewController(withIdentifier: "FinderViewController") as? FinderViewController else {
+    guard let navigationController = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else {
       return
     }
 
-    present(finderViewController, animated: true, completion: nil)
+    present(navigationController, animated: true, completion: nil)
   }
 }
