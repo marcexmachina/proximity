@@ -76,7 +76,7 @@
                                 <rect key="frame" x="16" y="629" width="74" height="30"/>
                                 <state key="normal" title="Find friend"/>
                                 <connections>
-                                    <segue destination="rLO-wH-9vs" kind="show" id="Bla-Wz-g4u"/>
+                                    <segue destination="rLO-wH-9vs" kind="show" identifier="segueToFriendListViewController" id="Bla-Wz-g4u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xky-be-gbK">
@@ -160,6 +160,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="lOe-Dx-NLl" kind="unwind" identifier="unwindToFinderViewControllerSegue" unwindAction="unwindToFinderViewControllerWithSegue:" id="Y9k-qx-FHj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -169,6 +172,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2OO-O4-0KP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lOe-Dx-NLl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1252" y="-234"/>
         </scene>

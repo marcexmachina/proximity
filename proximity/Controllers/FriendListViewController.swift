@@ -12,7 +12,16 @@ import Foundation
 class FriendListViewController: UITableViewController {
 
   // MARK: - Private properties
+
   private var friends: [Friend] = []
+
+
+
+  // Properties
+
+ var delegate: FriendFinderDelegate?
+
+
 
   // MARK: - Lifecycle
 
@@ -21,6 +30,14 @@ class FriendListViewController: UITableViewController {
       self.friends = friends
       self.tableView.reloadData()
     }
+  }
+
+
+  // MARK: - UITableView
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    delegate?.updateFriendToFind(withFriend: friends[indexPath.row])
+    self.navigationController?.popViewController(animated: true)
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

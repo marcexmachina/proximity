@@ -24,7 +24,7 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
     }
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.pausesLocationUpdatesAutomatically = true
-    locationManager.distanceFilter = 10 // 10 meters before an update is sent
+    locationManager.distanceFilter = 5 // 10 meters before an update is sent
     locationManager.delegate = self
     locationManager.startUpdatingLocation()
   }

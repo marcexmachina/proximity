@@ -12,5 +12,6 @@ struct Friend: Decodable {
   var firstName: String
   var lastName: String
   var name: String
+  var id: String
 //  var pictureURL: String
 }

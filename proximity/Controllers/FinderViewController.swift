@@ -10,7 +10,11 @@ import UIKit
 import SceneKit
 import ARKit
 
-class FinderViewController: UIViewController, ARSCNViewDelegate {
+protocol FriendFinderDelegate {
+  func updateFriendToFind(withFriend friend: Friend)
+}
+
+class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDelegate {
 
   // MARK: - Outlets
 
@@ -22,13 +26,12 @@ class FinderViewController: UIViewController, ARSCNViewDelegate {
   let locationUtils: LocationUtils
   let databaseManager: DatabaseManager
 
-  
+
 
   // MARK: - Lifecycle
 
   required init?(coder aDecoder: NSCoder) {
     databaseManager = DatabaseManager()
-    databaseManager.storeUser()
     locationUtils = LocationUtils()
     locationUtils.trackLocation()
     super.init(coder: aDecoder)
@@ -71,6 +74,34 @@ class FinderViewController: UIViewController, ARSCNViewDelegate {
     super.didReceiveMemoryWarning()
       // Release any cached data, images, etc that aren't in use.
   }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "segueToFriendListViewController" {
+      if let destinationViewController = segue.destination as? FriendListViewController {
+        destinationViewController.delegate = self
+      }
+    }
+  }
+
+
+
+  // MARK: - Private methods
+
+  private func updateLocation(forFriend friend: Friend) {
+    databaseManager.retrieveDataForUser(withIdentifier: friend.id) { data in
+      print("CLOSURE DATA:: \(data)")
+    }
+  }
+
+
+
+  // MARK: - FriendFinderDelegate
+
+  func updateFriendToFind(withFriend friend: Friend) {
+    updateLocation(forFriend: friend)
+  }
+
+  
 
   // MARK: - ARSCNViewDelegate
 
