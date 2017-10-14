@@ -31,6 +31,7 @@ class FriendListViewController: UITableViewController {
       self.tableView.reloadData()
     }
   }
+  
 
 
   // MARK: - UITableView

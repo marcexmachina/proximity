@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 import FacebookLogin
 import FacebookCore
 import FirebaseAuth
@@ -24,6 +23,7 @@ class LoginViewController: UIViewController {
   // Private properties
 
   let loginManager = LoginManager()
+
 
 
   // MARK: - Actions
@@ -49,6 +49,8 @@ class LoginViewController: UIViewController {
     }
   }
 
+
+
   // MARK: - Lifecycle Methods
 
   override func viewDidLoad() {
@@ -57,13 +59,15 @@ class LoginViewController: UIViewController {
     }
   }
 
+
+
   // MARK: - Private methods
 
   private func presentFriendFinderViewController() {
-    guard let navigationController = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else {
+    guard let navigationController = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as?
+      UINavigationController else {
       return
     }
-
     present(navigationController, animated: true, completion: nil)
   }
 }
