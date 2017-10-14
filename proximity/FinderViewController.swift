@@ -12,7 +12,27 @@ import ARKit
 
 class FinderViewController: UIViewController, ARSCNViewDelegate {
 
+  // MARK: - Outlets
+
   @IBOutlet var sceneView: ARSCNView!
+
+
+
+  // MARK: - Private properties
+  let locationUtils: LocationUtils
+  let databaseManager: DatabaseManager
+
+  
+
+  // MARK: - Lifecycle
+
+  required init?(coder aDecoder: NSCoder) {
+    databaseManager = DatabaseManager()
+    databaseManager.storeUser()
+    locationUtils = LocationUtils()
+    locationUtils.trackLocation()
+    super.init(coder: aDecoder)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()

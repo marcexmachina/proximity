@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="472.80000000000001" y="87.706146926536732"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="FQM-zg-gfy">
             <objects>
-                <viewController id="Ync-kF-yOD" sceneMemberID="viewController">
+                <viewController id="Ync-kF-yOD" customClass="SettingsViewController" customModule="proximity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9wh-p8-XWq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,6 +125,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Crb-ZD-dVg">
                                 <rect key="frame" x="310" y="80" width="51" height="31"/>
+                                <connections>
+                                    <action selector="allowLocationSwitchedPressed:" destination="Ync-kF-yOD" eventType="valueChanged" id="LwW-O0-ARJ"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -12,6 +12,7 @@
 		9863F9141F90D1AC0057C244 /* FacebookUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863F9131F90D1AC0057C244 /* FacebookUtils.swift */; };
 		9891A1421F90B369006AF845 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1411F90B369006AF845 /* FriendListViewController.swift */; };
 		9891A1441F90B9BA006AF845 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1431F90B9BA006AF845 /* LoginViewController.swift */; };
+		9897AD0C1F91910B001965D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897AD0B1F91910B001965D5 /* SettingsViewController.swift */; };
 		989C59AB1F90AA7700492039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C59AA1F90AA7700492039 /* AppDelegate.swift */; };
 		989C59AD1F90AA7700492039 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 989C59AC1F90AA7700492039 /* art.scnassets */; };
 		989C59AF1F90AA7700492039 /* FinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C59AE1F90AA7700492039 /* FinderViewController.swift */; };
@@ -22,6 +23,8 @@
 		989C59CD1F90AABC00492039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 989C59CC1F90AAB900492039 /* GoogleService-Info.plist */; };
 		98EADCD31F90E220009BE033 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EADCD21F90E220009BE033 /* Friend.swift */; };
 		98EADCD61F90E390009BE033 /* FriendMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EADCD51F90E390009BE033 /* FriendMapping.swift */; };
+		98FFAE131F91931F005ED6C8 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFAE121F91931F005ED6C8 /* LocationUtils.swift */; };
+		98FFAE151F91A925005ED6C8 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFAE141F91A925005ED6C8 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,7 @@
 		9863F9131F90D1AC0057C244 /* FacebookUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUtils.swift; sourceTree = "<group>"; };
 		9891A1411F90B369006AF845 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		9891A1431F90B9BA006AF845 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9897AD0B1F91910B001965D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		989C59A71F90AA7700492039 /* proximity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proximity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989C59AA1F90AA7700492039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		989C59AC1F90AA7700492039 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		989C59CC1F90AAB900492039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98EADCD21F90E220009BE033 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		98EADCD51F90E390009BE033 /* FriendMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMapping.swift; sourceTree = "<group>"; };
+		98FFAE121F91931F005ED6C8 /* LocationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
+		98FFAE141F91A925005ED6C8 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A14C837EE66839B3432BA06D /* Pods_proximityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proximityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CEF7AAE18BEE18DEA91983 /* Pods-proximity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proximity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proximity/Pods-proximity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +133,9 @@
 				989C59B81F90AA7700492039 /* Info.plist */,
 				9891A1431F90B9BA006AF845 /* LoginViewController.swift */,
 				9863F9131F90D1AC0057C244 /* FacebookUtils.swift */,
+				9897AD0B1F91910B001965D5 /* SettingsViewController.swift */,
+				98FFAE121F91931F005ED6C8 /* LocationUtils.swift */,
+				98FFAE141F91A925005ED6C8 /* DatabaseManager.swift */,
 			);
 			path = proximity;
 			sourceTree = "<group>";
@@ -371,11 +380,14 @@
 			files = (
 				9863F9141F90D1AC0057C244 /* FacebookUtils.swift in Sources */,
 				9891A1441F90B9BA006AF845 /* LoginViewController.swift in Sources */,
+				98FFAE151F91A925005ED6C8 /* DatabaseManager.swift in Sources */,
 				98EADCD61F90E390009BE033 /* FriendMapping.swift in Sources */,
 				989C59AF1F90AA7700492039 /* FinderViewController.swift in Sources */,
 				98EADCD31F90E220009BE033 /* Friend.swift in Sources */,
 				989C59AB1F90AA7700492039 /* AppDelegate.swift in Sources */,
+				98FFAE131F91931F005ED6C8 /* LocationUtils.swift in Sources */,
 				9891A1421F90B369006AF845 /* FriendListViewController.swift in Sources */,
+				9897AD0C1F91910B001965D5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

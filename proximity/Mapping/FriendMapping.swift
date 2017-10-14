@@ -18,7 +18,9 @@ struct FriendMapping {
   }
 
   private static func friend(fromDictionary dictionary: [String: Any]) -> Friend {
-    return Friend(firstName: dictionary["first_name"] as! String, lastName: dictionary["last_name"] as! String, name: dictionary["name"] as! String)
+    return Friend(firstName: dictionary["first_name"] as! String,
+                  lastName: dictionary["last_name"] as! String,
+                  name: dictionary["name"] as! String)
   }
 
 }

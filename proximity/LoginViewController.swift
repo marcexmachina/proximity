@@ -11,6 +11,7 @@ import UIKit
 
 import FacebookLogin
 import FacebookCore
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -19,19 +20,31 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var loginButton: UIButton!
 
 
+
+  // Private properties
+
+  let loginManager = LoginManager()
+
+
   // MARK: - Actions
 
   @IBAction func loginButtonPressed(_ sender: Any) {
-    let loginManager = LoginManager()
-    loginManager.logIn([ .publicProfile, .email, .userFriends], viewController: self) { loginResult in
+    loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends], viewController: self) { loginResult in
       switch loginResult {
       case .failed(let error):
         print(error)
       case .cancelled:
         print("User cancelled login")
-      case .success(grantedPermissions: let grantedPermissions, let declinedPermissions, let accessToken):
+      case .success(grantedPermissions: _,  _, let accessToken):
         print("Logged in!")
-        self.presentFriendFinderViewController()
+        let authCredential = FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
+        Auth.auth().signIn(with: authCredential) { (user, error) in
+          guard error == nil else {
+            print("Error signing in user: \(String(describing: accessToken.userId)). Error:: \(String(describing: error))")
+            return
+          }
+          self.presentFriendFinderViewController()
+        }
       }
     }
   }
