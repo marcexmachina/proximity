@@ -13,6 +13,7 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
 
   let locationManager = CLLocationManager()
   let databaseManager = DatabaseManager()
+  var currentLocation: CLLocation?
 
   func trackLocation() {
     let authorizationStatus = CLLocationManager.authorizationStatus()
@@ -35,6 +36,11 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
       print("Error storing location:: No last location found")
       return
     }
+    currentLocation = lastLocation
     databaseManager.storeLocation(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude)
   }
+
+//  func currentLocation() {
+//    locationManager.
+//  }
 }

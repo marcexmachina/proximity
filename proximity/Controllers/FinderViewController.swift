@@ -9,6 +9,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import CoreLocation
 
 protocol FriendFinderDelegate {
   func updateFriendToFind(withFriend friend: Friend)
@@ -89,7 +90,17 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
 
   private func updateLocation(forFriend friend: Friend) {
     databaseManager.retrieveDataForUser(withIdentifier: friend.id) { data in
-      print("CLOSURE DATA:: \(data)")
+      if let currentLocation = self.locationUtils.currentLocation {
+        guard let latitude = data["latitude"] as? Double, let longitude = data["longitude"] as? Double else {
+          print("Error creating latitude and longitude for friends location")
+          return
+        }
+        let friendLocation = CLLocation(latitude: latitude, longitude: longitude)
+        let distanceToFriend = currentLocation.distance(from: friendLocation)
+        print("Friend location:: \(friendLocation)")
+        print("Current location:: \(currentLocation)")
+        print("Distance to friend:: \(distanceToFriend)")
+      }
     }
   }
 
