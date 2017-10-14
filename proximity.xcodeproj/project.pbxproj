@@ -97,6 +97,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		986D049D1F920DD000461623 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				989C59AE1F90AA7700492039 /* FinderViewController.swift */,
+				9891A1411F90B369006AF845 /* FriendListViewController.swift */,
+				9891A1431F90B9BA006AF845 /* LoginViewController.swift */,
+				9897AD0B1F91910B001965D5 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		986D049E1F920DDF00461623 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9863F9131F90D1AC0057C244 /* FacebookUtils.swift */,
+				98FFAE121F91931F005ED6C8 /* LocationUtils.swift */,
+				98FFAE141F91A925005ED6C8 /* DatabaseManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		989C599E1F90AA7700492039 = {
 			isa = PBXGroup;
 			children = (
@@ -125,17 +146,12 @@
 				989C59CC1F90AAB900492039 /* GoogleService-Info.plist */,
 				989C59AA1F90AA7700492039 /* AppDelegate.swift */,
 				989C59AC1F90AA7700492039 /* art.scnassets */,
-				989C59AE1F90AA7700492039 /* FinderViewController.swift */,
-				9891A1411F90B369006AF845 /* FriendListViewController.swift */,
+				986D049D1F920DD000461623 /* Controllers */,
 				989C59B01F90AA7700492039 /* Main.storyboard */,
 				989C59B31F90AA7700492039 /* Assets.xcassets */,
 				989C59B51F90AA7700492039 /* LaunchScreen.storyboard */,
 				989C59B81F90AA7700492039 /* Info.plist */,
-				9891A1431F90B9BA006AF845 /* LoginViewController.swift */,
-				9863F9131F90D1AC0057C244 /* FacebookUtils.swift */,
-				9897AD0B1F91910B001965D5 /* SettingsViewController.swift */,
-				98FFAE121F91931F005ED6C8 /* LocationUtils.swift */,
-				98FFAE141F91A925005ED6C8 /* DatabaseManager.swift */,
+				986D049E1F920DDF00461623 /* Utilities */,
 			);
 			path = proximity;
 			sourceTree = "<group>";
