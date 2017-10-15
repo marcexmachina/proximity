@@ -90,19 +90,20 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
 
   private func updateLocation(forFriend friend: Friend) {
     databaseManager.retrieveDataForUser(withIdentifier: friend.id) { data in
-      if let currentLocation = self.locationUtils.currentLocation {
-        guard let latitude = data["latitude"] as? Double, let longitude = data["longitude"] as? Double else {
-          print("Error creating latitude and longitude for friends location")
-          return
-        }
-        let friendLocation = CLLocation(latitude: latitude, longitude: longitude)
-        let distanceToFriend = currentLocation.distance(from: friendLocation)
-        let bearingToFriend = self.locationUtils.bearing(toLocation: friendLocation)
-        print("Friend location:: \(friendLocation)")
-        print("Current location:: \(currentLocation)")
-        print("Distance to friend:: \(distanceToFriend)")
-        print("Bearing to friend:: \(bearingToFriend)")
+      guard let currentLocation = self.locationUtils.currentLocation,
+        let latitude = data["latitude"] as? Double,
+        let longitude = data["longitude"] as? Double else {
+        print("Error creating latitude and longitude for friends location")
+        return
       }
+      
+      let friendLocation = CLLocation(latitude: latitude, longitude: longitude)
+      let distanceToFriend = currentLocation.distance(from: friendLocation)
+      let bearingToFriend = self.locationUtils.bearing(toLocation: friendLocation)
+      print("Friend location:: \(friendLocation)")
+      print("Current location:: \(currentLocation)")
+      print("Distance to friend:: \(distanceToFriend)")
+      print("Bearing to friend:: \(bearingToFriend)")
     }
   }
 
