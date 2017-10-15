@@ -104,6 +104,23 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
       print("Current location:: \(currentLocation)")
       print("Distance to friend:: \(distanceToFriend)")
       print("Bearing to friend:: \(bearingToFriend)")
+      
+      self.addFriendSphere(atLocation: friendLocation, atDistance: distanceToFriend)
+    }
+  }
+
+  private func addFriendSphere(atLocation location: CLLocation, atDistance distance: Double) {
+    // Create anchor using the camera’s current position
+    if let currentFrame = sceneView.session.currentFrame {
+      // Create a transform with a translation of X meters in front
+      // of the camera
+
+      let newDistance = 2.0
+      let transform = locationUtils.transform(toLocation: location, distanceInMeters: newDistance)
+//      let transform = locationUtils.transform(originTransform: currentFrame.camera.transform, toLocation: location, distanceInMeters: 1.0)
+      // Add a new anchor to the session
+      let anchor = ARAnchor(transform: transform)
+      sceneView.session.add(anchor: anchor)
     }
   }
 
@@ -119,14 +136,16 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
 
   // MARK: - ARSCNViewDelegate
 
-/*
   // Override to create and configure nodes for anchors added to the view's session.
   func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-      let node = SCNNode()
+    let sphere = SCNSphere(radius: 0.02)
+    sphere.firstMaterial?.diffuse.contents = UIColor.red
+    sphere.firstMaterial?.lightingModel = .constant
+    sphere.firstMaterial?.isDoubleSided = true
+    let sphereNode = SCNNode(geometry: sphere)
 
-      return node
+    return sphereNode
   }
-*/
 
   func session(_ session: ARSession, didFailWithError error: Error) {
       // Present an error message to the user

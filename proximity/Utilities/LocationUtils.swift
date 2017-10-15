@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import GLKit
 
 class LocationUtils: NSObject, CLLocationManagerDelegate {
 
@@ -62,6 +63,20 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
     return radiansToDegrees(radians: radiansBearing)
   }
 
+  func transform(toLocation location: CLLocation, distanceInMeters distance: Double) -> matrix_float4x4 {
+    let bearing = self.bearing(toLocation: location)
+    let originTransform = matrix_identity_float4x4
+    var translationMatrix = matrix_identity_float4x4
+    translationMatrix.columns.3.z = -1 * Float(distance)
+
+    // Rotation matrix theta degrees
+    let rotationMatrix = GLKMatrix4RotateY(GLKMatrix4Identity, -1 * Float(bearing))
+
+    let transformMatrix = simd_mul(convertGLKMatrix4Tosimd_float4x4(matrix: rotationMatrix), translationMatrix)
+
+    return simd_mul(originTransform, transformMatrix)
+  }
+
 
 
   // MARK: - Private methods
@@ -72,6 +87,13 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
 
   private func radiansToDegrees(radians: Double) -> Double {
     return radians * 180.0 / .pi
+  }
+
+  private func convertGLKMatrix4Tosimd_float4x4(matrix: GLKMatrix4) -> float4x4{
+    return float4x4(float4(matrix.m00,matrix.m01,matrix.m02,matrix.m03),
+                    float4( matrix.m10,matrix.m11,matrix.m12,matrix.m13 ),
+                    float4( matrix.m20,matrix.m21,matrix.m22,matrix.m23 ),
+                    float4( matrix.m30,matrix.m31,matrix.m32,matrix.m33 ))
   }
 
 }
