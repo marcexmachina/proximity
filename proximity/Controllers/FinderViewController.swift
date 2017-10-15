@@ -97,9 +97,11 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
         }
         let friendLocation = CLLocation(latitude: latitude, longitude: longitude)
         let distanceToFriend = currentLocation.distance(from: friendLocation)
+        let bearingToFriend = self.locationUtils.bearing(toLocation: friendLocation)
         print("Friend location:: \(friendLocation)")
         print("Current location:: \(currentLocation)")
         print("Distance to friend:: \(distanceToFriend)")
+        print("Bearing to friend:: \(bearingToFriend)")
       }
     }
   }

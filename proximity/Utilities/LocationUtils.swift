@@ -40,7 +40,38 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
     databaseManager.storeLocation(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude)
   }
 
-//  func currentLocation() {
-//    locationManager.
-//  }
+  func bearing(toLocation destination: CLLocation) -> Double {
+    guard let currentLatitude = currentLocation?.coordinate.latitude,
+      let currentLongitude = currentLocation?.coordinate.longitude else {
+      return 0.0
+    }
+
+    let destinationLatitude = destination.coordinate.latitude
+    let destinationLongitude = destination.coordinate.longitude
+
+    let deltaLongitude = currentLongitude - destinationLongitude
+
+    let x = cos(destinationLatitude) * sin(deltaLongitude)
+    let y = cos(currentLatitude) * sin(destinationLatitude) - sin(currentLatitude) * cos(destinationLatitude) * cos(deltaLongitude)
+    var radiansBearing = atan2(x, y)
+
+    if radiansBearing < 0.0 {
+      radiansBearing += 2 * .pi
+    }
+
+    return radiansToDegrees(radians: radiansBearing)
+  }
+
+
+
+  // MARK: - Private methods
+
+  private func degreesToRadians(degrees: Double) -> Double {
+    return degrees * .pi / 180.0
+  }
+
+  private func radiansToDegrees(radians: Double) -> Double {
+    return radians * 180.0 / .pi
+  }
+
 }
