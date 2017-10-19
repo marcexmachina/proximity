@@ -86,12 +86,20 @@
                                     <segue destination="Ync-kF-yOD" kind="show" id="otX-ge-ZJZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0t-r2-El2">
+                                <rect key="frame" x="166" y="634" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="s0t-r2-El2" firstAttribute="centerY" secondItem="J1t-qq-xln" secondAttribute="centerY" id="4fp-MO-C6C"/>
                             <constraint firstItem="878-Bf-t38" firstAttribute="bottom" secondItem="YV3-jS-mAV" secondAttribute="bottom" id="79S-XX-ayC"/>
                             <constraint firstItem="YV3-jS-mAV" firstAttribute="top" secondItem="878-Bf-t38" secondAttribute="top" id="G8c-ih-Ghx"/>
                             <constraint firstItem="J1t-qq-xln" firstAttribute="leading" secondItem="878-Bf-t38" secondAttribute="leading" constant="16" id="Hah-m8-awC"/>
+                            <constraint firstItem="s0t-r2-El2" firstAttribute="centerX" secondItem="YV3-jS-mAV" secondAttribute="centerX" id="U4d-cy-L8p"/>
                             <constraint firstItem="878-Bf-t38" firstAttribute="bottom" secondItem="J1t-qq-xln" secondAttribute="bottom" constant="8" id="a6r-QB-xdj"/>
                             <constraint firstItem="878-Bf-t38" firstAttribute="bottom" secondItem="xky-be-gbK" secondAttribute="bottom" constant="8" id="b38-sD-vdP"/>
                             <constraint firstItem="878-Bf-t38" firstAttribute="trailing" secondItem="YV3-jS-mAV" secondAttribute="trailing" id="dje-ib-eXY"/>
@@ -103,6 +111,7 @@
                     <navigationItem key="navigationItem" id="Bev-Jx-Ev6"/>
                     <connections>
                         <outlet property="sceneView" destination="YV3-jS-mAV" id="8qj-lu-k30"/>
+                        <outlet property="statusLabel" destination="s0t-r2-El2" id="dJL-R5-01t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -192,7 +201,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klQ-7K-hUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.40000000000001" y="87.256371814092958"/>
+            <point key="canvasLocation" x="-201" y="88"/>
         </scene>
     </scenes>
     <resources>
