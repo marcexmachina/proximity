@@ -26,8 +26,8 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
 
 
   // MARK: - Private properties
-  let locationUtils: LocationUtils
-  let databaseManager: DatabaseManager
+  let locationUtils = LocationUtils()
+  let databaseManager = DatabaseManager()
   let configuration = ARWorldTrackingConfiguration()
   var anchors = [UUID: String]()
   var friendToFind: Friend?
@@ -36,21 +36,15 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
 
   // MARK: - Lifecycle
 
-  required init?(coder aDecoder: NSCoder) {
-    databaseManager = DatabaseManager()
-    locationUtils = LocationUtils()
-    locationUtils.trackLocation()
-    super.init(coder: aDecoder)
-    locationUtils.delegate = self
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
     statusLabel.text = "Location not found"
     statusLabel.textColor = .red
-    // Set the view's delegate
+
     sceneView.delegate = self
+    locationUtils.delegate = self
+    locationUtils.trackLocation()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -112,13 +106,6 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
     let anchor = ARAnchor(transform: SCNMatrix4ToMat4(transform))
     anchors[anchor.identifier] = "north"
     sceneView.session.add(anchor: anchor)
-//    let box = SCNBox(width: 0.4, height: 0.4, length: 0.4, chamferRadius: 0)
-//    box.firstMaterial?.diffuse.contents = UIColor.blue
-//    box.firstMaterial?.lightingModel = .constant
-//    box.firstMaterial?.isDoubleSided = true
-//    let boxNode = SCNNode(geometry: box)
-//    boxNode.transform = transform
-//    sceneView.scene.rootNode.addChildNode(boxNode)
   }
 
   private func addFriendSphere(atLocation location: CLLocation, atDistance distance: Double) {
@@ -179,24 +166,19 @@ class FinderViewController: UIViewController, ARSCNViewDelegate, FriendFinderDel
 
   // MARK: - ARSCNViewDelegate
 
-  // Override to create and configure nodes for anchors added to the view's session.
-  func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+  func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
     if anchors[anchor.identifier] == "north" {
       let box = SCNBox(width: 0.4, height: 0.4, length: 0.4, chamferRadius: 0)
       box.firstMaterial?.diffuse.contents = UIColor.blue
       box.firstMaterial?.lightingModel = .constant
       box.firstMaterial?.isDoubleSided = true
-      let boxNode = SCNNode(geometry: box)
-      return boxNode
+      node.geometry = box
     } else if anchors[anchor.identifier] == "friend" {
       let sphere = SCNSphere(radius: 0.2)
       sphere.firstMaterial?.diffuse.contents = UIColor.red
       sphere.firstMaterial?.lightingModel = .constant
       sphere.firstMaterial?.isDoubleSided = true
-      let sphereNode = SCNNode(geometry: sphere)
-      return sphereNode
-    } else {
-      return nil
+      node.geometry = sphere
     }
   }
 
